@@ -1,0 +1,15 @@
+Solution1 :
+class Solution:
+    def reverseString(self, s: List[str]) -> None:
+        s.reverse()
+        
+ Solution 2:
+ class Solution:
+    def reverseString(self, s: List[str]) -> None:
+       # print(s)
+        n = int(len(s)/2)
+        for i in range(n):
+            #print(s[i],s[-(i+1)])
+            s[i] ,s[-(i+1)] = s[-(i+1)],s[i]
+        return s   
+        
