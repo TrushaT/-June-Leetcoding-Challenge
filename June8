@@ -1,0 +1,8 @@
+#weirdly 536870912 to base 2 returns 29.0000000(13places)4 which makes it not an integer!!!!!
+import math
+class Solution:
+    def isPowerOfTwo(self, n: int) -> bool:
+        if n <= 0 :
+            return False
+        return round(math.log(n,2),13).is_integer() 
+        
