@@ -1,0 +1,12 @@
+class Solution:
+    def isSubsequence(self, s: str, t: str) -> bool:
+        for i in s:
+            #print(i)
+            if i in t :
+                a = t.index(i)
+                t = t[a+1:]
+                #print(t)
+            else :
+                return False
+        return True
+        
