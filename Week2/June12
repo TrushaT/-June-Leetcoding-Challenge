@@ -1,0 +1,23 @@
+class RandomizedSet:
+
+    def __init__(self):
+        self.de = collections.deque([])
+        
+
+    def insert(self, val: int) -> bool:
+        if val in self.de:
+            return False
+        self.de.append(val)
+        return True
+        
+
+    def remove(self, val: int) -> bool:
+        if val in self.de:
+            self.de.remove(val)
+            return True
+        return False
+        
+
+    def getRandom(self) -> int:
+        return choice(self.de)
+        
