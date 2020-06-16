@@ -1,0 +1,21 @@
+#discuss
+class Solution:
+    def findCheapestPrice(self, n: int, flights: List[List[int]], src: int, dst: int, K: int) -> int:
+        graph = defaultdict(list)
+        deque_vertices = deque([[src,0,0]])
+        min_price = float("inf")
+        
+        for i,j,w in flights:
+            graph[i].append([j,w])
+        
+        while deque_vertices:
+            city, visited , price = deque_vertices.popleft()
+            
+            if price <= min_price and visited <= K and city!=dst :
+                for neighbour, price_neighbour in graph[city]:
+                    deque_vertices.append([neighbour, visited +  1 ,price + price_neighbour ])
+                    
+            if city == dst:
+                min_price = min(min_price, price)
+            
+        return min_price if min_price != float('inf') else -1
